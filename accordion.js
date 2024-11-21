@@ -19,7 +19,7 @@ accordionBtns.forEach((accordion) => {
     console.log(content);
 
     if (content.style.maxHeight) {
-      //this is if the accordion is open
+      //this is if the accordion is open in the browser
       content.style.maxHeight = null;
     } else {
       //if the accordion is currently closed
