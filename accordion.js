@@ -14,26 +14,23 @@ const accordionBtns = document.querySelectorAll(".accordion");
 
 accordionBtns.forEach((accordion) => {
   accordion.addEventListener("click", function () {
-    // Check if the accordion is already open by inspecting the aria-expanded attribute
     const isOpen = this.getAttribute("aria-expanded") === "true";
-    this.setAttribute("aria-expanded", !isOpen); // Toggle aria-expanded for accessibility
-    this.classList.toggle("is-open"); // Toggle the 'is-open' class for visual effect
+    this.setAttribute("aria-expanded", !isOpen);
+    this.classList.toggle("is-open");
 
     let content = this.nextElementSibling;
     if (isOpen) {
-      // If the accordion is open, close it
-      content.style.maxHeight = null;
+      content.style.maxHeight = null; // If the accordion is open, close it
     } else {
-      // If the accordion is closed, open it by setting maxHeight to the scrollHeight of the content
-      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.maxHeight = content.scrollHeight + "px"; // If the accordion is closed, open it by setting maxHeight to the scrollHeight of the content
     }
   });
 
   // Adding keyboard accessibility to allow accordion toggling with Enter or Space keys
   accordion.addEventListener("keydown", function (e) {
     if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault(); // Prevent default action of the key
-      this.click(); // Simulate a click event to toggle the accordion
+      e.preventDefault();   // Prevent default action of the key
+      this.click();   // Simulate a click event to toggle the accordion
     }
   });
 });
